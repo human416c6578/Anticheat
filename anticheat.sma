@@ -18,7 +18,7 @@
 const XO_CBASEPLAYERWEAPON = 4;
 const m_pPlayer = 41;
 
-enum _:detect_data
+enum detect_data
 {
 	detect_strafes,
 	detect_move,
@@ -30,12 +30,12 @@ enum _:detect_data
 	Float:detect_maxSpeed
 }
 
-enum _:KEYS
+enum KEYS
 {
 	KEY_A, KEY_D, KEY_W, KEY_S
 }
 
-enum _:DATA
+enum DATA
 {
 	BUTTON, KEY
 }
@@ -78,7 +78,7 @@ new g_bIgnore[33];
 public plugin_init(){
 
 	register_forward(FM_CmdStart, "FM_CmdStart_Pre", 0);
-	register_forward(FM_PlayerPreThink, "FM_PlayerPreThink_Pre", 0);
+	//register_forward(FM_PlayerPreThink, "FM_PlayerPreThink_Pre", 0);
 	register_forward(FM_PlayerPostThink, "FM_PlayerPostThink_Pre", 0);
 
 	new szWeaponName[32];
@@ -238,7 +238,7 @@ public FM_CmdStart_Pre(id, uc_handle, seed)
 	return FMRES_IGNORED;
 }
 
-public FM_PlayerPreThink_Pre(id)
+/*public FM_PlayerPreThink_Pre(id)
 {
 	if(!is_user_alive(id) || g_bIgnore[id]) return FMRES_IGNORED;
 	
@@ -317,7 +317,7 @@ public FM_PlayerPreThink_Pre(id)
 
 	return FMRES_IGNORED;
 }
-
+*/
 public FM_PlayerPostThink_Pre(id)
 {
 	if(!is_user_alive(id) || is_user_bot(id) || g_bIgnore[id]) return FMRES_IGNORED;
